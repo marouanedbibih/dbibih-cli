@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Remove symlinks
+rm -f /usr/local/bin/system_update
+rm -f /usr/local/bin/cleanup
+rm -f /usr/local/bin/backup
+rm -f /usr/local/bin/disk_check
+rm -f /usr/local/bin/cpu_memory_check
+
+exit 0

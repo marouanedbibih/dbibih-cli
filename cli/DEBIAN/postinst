@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+# Make scripts executable
+chmod +x /usr/local/bin/dbibih
+chmod +x /usr/local/bin/backup
+chmod +x /usr/local/bin/cleanup
+chmod +x /usr/local/bin/cpu_memory_check
+chmod +x /usr/local/bin/disk_check
+chmod +x /usr/local/bin/system_update
+
+echo "dbibih CLI installed successfully!"
+exit 0

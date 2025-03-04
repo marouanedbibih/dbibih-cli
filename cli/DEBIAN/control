@@ -1,0 +1,9 @@
+Package: dbibih-cli
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Marouane Dbibih dbh.marouane@gmail.com
+Depends: python3, nmap, bash
+Section: utils
+Priority: optional
+Homepage: https://github.com/dbibih/dbibih-cli
+Description: A CLI tool for automating software development, DevOps, and cloud tasks.

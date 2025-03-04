@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+# Additional cleanup if needed
+
+exit 0

@@ -1,13 +1,11 @@
 #!/bin/bash
 set -e
 
-# Make scripts executable
-chmod +x /usr/local/bin/dbibih
-chmod +x /usr/local/bin/backup
-chmod +x /usr/local/bin/cleanup
-chmod +x /usr/local/bin/cpu_memory_check
-chmod +x /usr/local/bin/disk_check
-chmod +x /usr/local/bin/system_update
+# Create symlinks for easy access to scripts
+ln -sf /usr/local/bin/dbibih/backup.sh /usr/local/bin/backup
+ln -sf /usr/local/bin/dbibih/cleanup.sh /usr/local/bin/cleanup
+ln -sf /usr/local/bin/dbibih/cpu_memory_check.sh /usr/local/bin/cpu_memory_check
+ln -sf /usr/local/bin/dbibih/disk_check.sh /usr/local/bin/disk_check
+ln -sf /usr/local/bin/dbibih/system_update.sh /usr/local/bin/system_update
 
-echo "dbibih CLI installed successfully!"
 exit 0

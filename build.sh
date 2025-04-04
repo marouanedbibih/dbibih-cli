@@ -1,0 +1,1 @@
+dpkg-deb --build cli /home/marouane-dbibih/Desktop/dbibih-cli/dbibih-cli.deb

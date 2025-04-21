@@ -1,11 +1,27 @@
 #!/bin/bash
 set -e
 
-# Create symlinks for easy access to scripts
-ln -sf /usr/local/bin/dbibih/backup.sh /usr/local/bin/backup
-ln -sf /usr/local/bin/dbibih/cleanup.sh /usr/local/bin/cleanup
-ln -sf /usr/local/bin/dbibih/cpu_memory_check.sh /usr/local/bin/cpu_memory_check
-ln -sf /usr/local/bin/dbibih/disk_check.sh /usr/local/bin/disk_check
-ln -sf /usr/local/bin/dbibih/system_update.sh /usr/local/bin/system_update
+# Define scripts directory
+SCRIPT_DIR="/usr/local/bin/scripts"
+
+# Ensure the directory exists
+if [ ! -d "$SCRIPT_DIR" ]; then
+  echo "Error: $SCRIPT_DIR does not exist."
+  exit 1
+fi
+
+# Create symlinks for easy access to individual commands
+ln -sf "$SCRIPT_DIR/backup.sh" /usr/local/bin/backup
+ln -sf "$SCRIPT_DIR/cleanup.sh" /usr/local/bin/cleanup
+ln -sf "$SCRIPT_DIR/cpu_memory_check.sh" /usr/local/bin/cpu_memory_check
+ln -sf "$SCRIPT_DIR/disk_check.sh" /usr/local/bin/disk_check
+ln -sf "$SCRIPT_DIR/system_update.sh" /usr/local/bin/system_update
+ln -sf "$SCRIPT_DIR/docker.sh" /usr/local/bin/docker.sh
+
+# Make sure the main CLI command is executable
+chmod +x /usr/local/bin/dbibih
+chmod +x "$SCRIPT_DIR"/*.sh
+
+echo "dbibih CLI installed successfully."
 
 exit 0

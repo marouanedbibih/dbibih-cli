@@ -1,0 +1,33 @@
+#!/bin/bash
+
+COMMAND=$1
+SCRIPT_DIR="/usr/local/bin/scripts"
+
+case $COMMAND in
+  backup)
+    "$SCRIPT_DIR/backup.sh"
+    ;;
+  cleanup)
+    "$SCRIPT_DIR/cleanup.sh"
+    ;;
+  cpu)
+    "$SCRIPT_DIR/cpu_memory_check.sh"
+    ;;
+  disk)
+    "$SCRIPT_DIR/disk_check.sh"
+    ;;
+  update)
+    "$SCRIPT_DIR/system_update.sh"
+    ;;
+  docker)
+    "$SCRIPT_DIR/docker.sh" "$2" "$3"
+    ;;
+  dockerfile)
+    "$SCRIPT_DIR/dockerfiles.sh" "$2" "$3" "$4"
+    ;;
+  *)
+    echo "Usage: dbibih {backup|cleanup|cpu|disk|update|docker|dockerfile}"
+    echo "Please provide a valid command."
+    exit 1
+    ;;
+esac

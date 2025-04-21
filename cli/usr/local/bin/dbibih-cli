@@ -25,6 +25,9 @@ case $COMMAND in
   dockerfile)
     "$SCRIPT_DIR/dockerfiles.sh" "$2" "$3" "$4"
     ;;
+  docker-monitor)
+    "$SCRIPT_DIR/docker_monitor.sh"
+    ;;
   *)
     echo "Usage: dbibih {backup|cleanup|cpu|disk|update|docker|dockerfile}"
     echo "Please provide a valid command."

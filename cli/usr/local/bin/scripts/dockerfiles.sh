@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Directory containing Dockerfile templates
 DOCKERFILE_TEMPLATES_DIR="/usr/local/bin/templates/docker"
 
-# Command-line arguments
 SUBCOMMAND=$1
 TECHNOLOGY=$2
 PROJECT_NAME=$3

@@ -1,4 +1,9 @@
 #!/bin/bash
+
+docker_status() {
+  docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+}
+
 find_docker_files() {
     COMPOSE_FILES=$(find . -type f -name "docker-compose*.yml" 2>/dev/null)
     if [[ -z "$COMPOSE_FILES" ]]; then
@@ -129,6 +134,9 @@ run_docker_dev() {
 
 
 case $1 in
+status)
+    docker_status
+    ;;
 find)
     find_docker_files
     ;;

@@ -17,9 +17,10 @@ ln -sf "$SCRIPT_DIR/cpu_memory_check.sh" /usr/local/bin/cpu_memory_check
 ln -sf "$SCRIPT_DIR/disk_check.sh" /usr/local/bin/disk_check
 ln -sf "$SCRIPT_DIR/system_update.sh" /usr/local/bin/system_update
 ln -sf "$SCRIPT_DIR/docker.sh" /usr/local/bin/docker.sh
+ln -sf "$SCRIPT_DIR/dockerfiles.sh" /usr/local/bin/dockerfiles.sh
 
 # Make sure the main CLI command is executable
-chmod +x /usr/local/bin/dbibih
+chmod +x /usr/local/bin/dbibih-cli
 chmod +x "$SCRIPT_DIR"/*.sh
 
 echo "dbibih CLI installed successfully."

@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+COMMAND="${1:-}"
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_INTERNAL_DIR="$(cd "$SCRIPT_DIR/.." && pwd)/internal"
+INSTALLED_INTERNAL_DIR="/usr/local/lib/dbibih-cli/internal"
+
+if [[ -d "$REPO_INTERNAL_DIR" ]]; then
+    INTERNAL_DIR="$REPO_INTERNAL_DIR"
+else
+    INTERNAL_DIR="$INSTALLED_INTERNAL_DIR"
+fi
+
+usage() {
+    echo "Usage: dbibih-cli {backup|cleanup|cpu|disk|update|docker|dockerfile|docker-monitor|nodejs|python|system}"
+    echo "Docker cleanup: dbibih-cli docker --cleanup [options]"
+    echo "Nodejs cleanup: dbibih-cli nodejs --cleanup [start_dir] [ignore_file] [options]"
+    echo "Python cleanup: dbibih-cli python --cleanup [options]"
+    echo "System cleanup: dbibih-cli system --cleanup [options]"
+}
+
+case "$COMMAND" in
+    backup)
+        bash "$INTERNAL_DIR/system/backup.sh"
+        ;;
+    cleanup)
+        bash "$INTERNAL_DIR/system/cleanup.sh"
+        ;;
+    cpu)
+        bash "$INTERNAL_DIR/system/cpu_memory_check.sh"
+        ;;
+    disk)
+        bash "$INTERNAL_DIR/system/disk_check.sh"
+        ;;
+    update)
+        bash "$INTERNAL_DIR/system/system_update.sh"
+        ;;
+    docker)
+        case "${2:-}" in
+            --cleanup)
+                bash "$INTERNAL_DIR/docker/cleanup.sh" "${@:3}"
+                ;;
+            *)
+                bash "$INTERNAL_DIR/docker/operations.sh" "${@:2}"
+                ;;
+        esac
+        ;;
+    dockerfile)
+        bash "$INTERNAL_DIR/docker/dockerfiles.sh" "${@:2}"
+        ;;
+    docker-monitor)
+        bash "$INTERNAL_DIR/docker/docker_monitor.sh"
+        ;;
+    nodejs)
+        case "${2:-}" in
+            --cleanup)
+                bash "$INTERNAL_DIR/nodejs/cleanup.sh" "${@:3}"
+                ;;
+            *)
+                echo "Usage: dbibih-cli nodejs --cleanup [start_dir] [ignore_file] [options]"
+                exit 1
+                ;;
+        esac
+        ;;
+    python)
+        case "${2:-}" in
+            --cleanup)
+                bash "$INTERNAL_DIR/python/cleanup.sh" "${@:3}"
+                ;;
+            *)
+                echo "Usage: dbibih-cli python --cleanup [options]"
+                exit 1
+                ;;
+        esac
+        ;;
+    system)
+        case "${2:-}" in
+            --cleanup)
+                bash "$INTERNAL_DIR/system/cleanup.sh" "${@:3}"
+                ;;
+            *)
+                echo "Usage: dbibih-cli system --cleanup [options]"
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
+esac

@@ -1,109 +1,69 @@
 # dbibih CLI Tool
 
-A lightweight custom command-line interface (CLI) toolkit by **Marouane Dbibih**, packaged as a Debian `.deb` package to automate essential system maintenance tasks on Linux.
-
----
-
-## Features
-
-The **dbibih-cli** package provides the following commands:
-- `backup` — Perform system backups.
-- `cleanup` — Clean up unnecessary system files.
-- `cpu_memory_check` — Check current CPU and memory usage.
-- `disk_check` — Display disk space usage.
-- `system_update` — Update the system packages.
-
-Each command is implemented as a standalone Bash script.
-
----
+A modular command-line toolkit by **Marouane Dbibih**, packaged as a Debian `.deb` for Linux automation and cleanup workflows.
 
 ## Project Structure
 
 ```
 dbibih-cli/
-├── build.sh                  # Package build and install script
-├── cli/
-│   ├── DEBIAN/
-│   │   ├── control           # Debian package metadata
-│   │   ├── postinst          # Post-installation setup script
-│   │   ├── postrm            # Post-removal cleanup script
-│   │   └── prerm             # Pre-removal script
-│   └── usr/
-│       └── local/
-│           └── bin/
-│               ├── dbibih    # Main CLI command
-│               └── scripts/
-│                   ├── backup.sh
-│                   ├── cleanup.sh
-│                   ├── cpu_memory_check.sh
-│                   ├── disk_check.sh
-│                   └── system_update.sh
-├── LICENSE
-└── README.md
+├── cmd/
+│   └── dbibih-cli
+├── internal/
+│   ├── core/
+│   ├── docker/
+│   ├── nodejs/
+│   ├── python/
+│   └── system/
+├── package/
+│   └── deb/
+│       ├── DEBIAN/
+│       └── usr/local/bin/dbibih-cli
+├── scripts/
+│   ├── build-deb.sh
+│   ├── install-local.sh
+│   └── smoke-test.sh
+├── test/
+│   ├── fixtures/
+│   └── integration/
+├── docs/
+│   ├── commands.md
+│   └── cleanup-policies.md
+├── Makefile
+└── build.sh
 ```
 
----
+## Build and Install
 
-## Installation
-
-**Prerequisites**  
-- A Linux system (Debian-based)
-- `dpkg` installed
-
-**Build and Install**
 ```bash
 bash build.sh
 ```
 
-This will:
-- Build the `dbibih-cli.deb` package
-- Install it using `dpkg`
-- Set up executable symlinks for your commands in `/usr/local/bin`
+Or step-by-step:
 
----
+```bash
+bash scripts/build-deb.sh
+bash scripts/install-local.sh
+```
 
 ## Usage
 
-After installation, you can run:
-
 ```bash
-backup
-cleanup
-cpu_memory_check
-disk_check
-system_update
+dbibih-cli nodejs --cleanup --help
+dbibih-cli docker --cleanup --help
+dbibih-cli docker status
 ```
 
-You can also run the main CLI entry point:
+Additional command references:
+- `docs/commands.md`
+- `docs/cleanup-policies.md`
+
+## Development
+
 ```bash
-dbibih
+make build
+make smoke
 ```
-
----
-
-## Uninstall
-
-To remove the package:
-```bash
-sudo dpkg --remove dbibih-cli
-```
-
-This will cleanly remove the CLI and associated symlinks from your system.
-
----
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Author
-
-**Marouane Dbibih**  
-Email: marouane.dbibih@gmail.com  
-GitHub: [github.com/marouane-db](https://github.com/marouane-db)
-
----
-
-If you'd like, I can also generate a `man` page or a help message for `dbibih` itself. Would you like that?
+This project is licensed under the MIT License. See [LICENSE](LICENSE).

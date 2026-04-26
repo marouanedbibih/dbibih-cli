@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+chmod +x /usr/local/bin/dbibih-cli
+find /usr/local/lib/dbibih-cli -type f -name "*.sh" -exec chmod +x {} \;
+chmod +x /usr/local/lib/dbibih-cli/cmd/dbibih-cli
+
+echo "dbibih CLI installed successfully."
+exit 0

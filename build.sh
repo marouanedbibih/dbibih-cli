@@ -1,16 +1,12 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-echo "📦 Building the dbibih CLI package..."
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Build the Debian package
-dpkg-deb --build cli dbibih-cli.deb
+echo "Building package..."
+bash "$ROOT_DIR/scripts/build-deb.sh"
 
-echo "✅ Package built successfully."
+echo "Installing package..."
+bash "$ROOT_DIR/scripts/install-local.sh"
 
-echo "📥 Installing the package..."
-
-# Install the generated package
-sudo dpkg -i dbibih-cli.deb
-
-echo "🎉 Package installed successfully!"
+echo "Done."

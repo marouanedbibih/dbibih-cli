@@ -1,0 +1,33 @@
+=== Snap List ===
+Name                       Version                         Rev    Tracking         Publisher           Notes
+aws-cli                    2.31.2                          1597   v2/stable        aws**               classic
+bare                       1.0                             5      latest/stable    canonical**         base
+brave                      1.82.172                        548    latest/stable    brave**             -
+code                       e3550cfa                        203    latest/stable    vscode**            classic
+core18                     20250910                        2952   latest/stable    canonical**         base
+core20                     20250730                        2669   latest/stable    canonical**         base
+core22                     20250822                        2133   latest/stable    canonical**         base
+core24                     20250729                        1151   latest/stable    canonical**         base
+doctl                      v1.143.0                        2242   latest/stable    digitalocean**      -
+ffmpeg-2404                7.1.1                           108    latest/stable    snapcrafters*       -
+firefox                    143.0.1-1                       6836   latest/stable    mozilla**           -
+firmware-updater           0+git.22198be                   167    1/stable/…       canonical**         -
+gedit                      48.1                            697    latest/stable    canonical**         -
+gnome-3-28-1804            3.28.0-19-g98f9e67.98f9e67      198    latest/stable    canonical**         -
+gnome-3-38-2004            0+git.efb213a                   143    latest/stable    canonical**         -
+gnome-42-2204              0+git.38ea591                   202    latest/stable/…  canonical**         -
+gnome-46-2404              0+git.4ca00c0-sdk0+git.df43897  125    latest/stable    canonical**         -
+gtk-common-themes          0.1-81-g442e511                 1535   latest/stable/…  canonical**         -
+helm                       3.19.0                          476    latest/stable    snapcrafters*       classic
+kubectl                    1.34.1                          3677   latest/stable    canonical**         classic
+mesa-2404                  24.2.8-snap185                  912    latest/stable    canonical**         -
+node                       20.19.5                         10543  20/stable        iojs**              classic
+postman                    11.64.7                         354    latest/stable    postman-inc**       -
+snap-store                 0+git.90575829                  1270   2/stable/…       canonical**         -
+snapd                      2.71                            25202  latest/stable    canonical**         snapd
+snapd-desktop-integration  0.9                             315    latest/stable/…  canonical**         -
+telegram-desktop           6.1.3                           6798   latest/stable    telegram-desktop**  -
+ticktick                   6.0.40                          20     latest/stable    appest              -
+
+=== Flatpak List ===
+Flatpak not installed.

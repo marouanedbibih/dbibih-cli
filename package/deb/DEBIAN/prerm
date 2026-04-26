@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+rm -f /usr/local/bin/dbibih-cli
+exit 0
